@@ -156,3 +156,20 @@ button{
 .hidden{
   display:none;
 }
+
+/* Unlock animation box */
+
+.unlock{
+  margin-top:25px;
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  max-width:280px;
+  box-shadow:0 10px 25px rgba(0,0,0,.1);
+  animation:pop .5s ease forwards;
+}
+
+@keyframes pop{
+  from{transform:scale(.7); opacity:0;}
+  to{transform:scale(1); opacity:1;}
+}
