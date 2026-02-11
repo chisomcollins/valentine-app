@@ -4,7 +4,7 @@
 
 const HER_NAME = "Chelsea";
 const INSIDE_JOKE = "My Apple of my life, Nne, My Achalugo, My Love, i can just imagine you smilling right now";
-const FAVORITE_COLOR = "INSERT FAVORITE COLOR";
+const FAVORITE_COLOR = "purple";
 
 const MEMORIES = [
   "The first time we met physically and we immediately started vibing with each other.",
