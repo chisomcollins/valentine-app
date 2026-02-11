@@ -63,16 +63,6 @@ button{
   transform:scale(1.08);
 }
 
-.music-btn{
-  position:fixed;
-  top:10px;
-  right:10px;
-  background:white;
-  border-radius:50%;
-  width:45px;
-  height:45px;
-}
-
 /* Envelope */
 .envelope{
   width:200px;
