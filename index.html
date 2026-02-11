@@ -1,0 +1,88 @@
+<!--
+========================================
+VALENTINE PROPOSAL WEB APP
+========================================
+
+HOW TO USE:
+1. Replace the CUSTOMIZATION values below in script.js
+2. Open index.html directly in browser
+   OR
+3. Upload these 3 files to a GitHub repo
+   → Settings → Pages → Deploy from branch → main / root
+
+No frameworks. No installs. 100% vanilla.
+========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For You ❤️</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+
+  <!-- Floating hearts container -->
+  <div id="hearts"></div>
+
+  <!-- MUSIC -->
+  <audio id="bgMusic" loop>
+    <!-- Free soft instrumental -->
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_c8f0a4a6df.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="musicToggle" class="music-btn">🎵</button>
+
+  <!-- SCREENS -->
+
+  <!-- 1. Welcome -->
+  <section id="welcome" class="screen active">
+    <h1 id="welcomeText"></h1>
+    <button class="primary" id="startBtn">Open something special 💌</button>
+  </section>
+
+  <!-- 2. Envelope -->
+  <section id="envelopeScreen" class="screen">
+    <div id="envelope" class="envelope">
+      <div class="flap"></div>
+      <div class="letter">Tap to open 💌</div>
+    </div>
+  </section>
+
+  <!-- 3. Memories -->
+  <section id="memoryScreen" class="screen">
+    <div class="card">
+      <p id="memoryText" class="typewriter"></p>
+      <button class="primary" id="nextMemory">Next ➜</button>
+    </div>
+  </section>
+
+  <!-- 4. Mini adventure -->
+  <section id="huntScreen" class="screen">
+    <h2>Pick the right memory 💖</h2>
+    <div class="choices">
+      <button class="choice" data-good="false">Random Tuesday</button>
+      <button class="choice" data-good="true">Our Special Day ✨</button>
+      <button class="choice" data-good="false">Doing Laundry</button>
+    </div>
+    <p id="huntMsg"></p>
+  </section>
+
+  <!-- 5. Final proposal -->
+  <section id="proposalScreen" class="screen">
+    <h1 class="proposal-title">Will you be my Valentine? ❤️</h1>
+
+    <div class="buttons">
+      <button id="yesBtn" class="yes">YES 💖</button>
+      <button id="noBtn" class="no">No 🙈</button>
+    </div>
+
+    <p id="finalMsg" class="hidden"></p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
