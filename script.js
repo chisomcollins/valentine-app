@@ -96,23 +96,6 @@ document.querySelectorAll(".choice").forEach(btn=>{
 });
 
 /* =====================================
-   Music toggle
-===================================== */
-
-const music=document.getElementById("bgMusic");
-const toggle=document.getElementById("musicToggle");
-
-toggle.onclick=()=>{
-  if(music.paused){
-    music.play();
-    toggle.textContent="🔊";
-  }else{
-    music.pause();
-    toggle.textContent="🎵";
-  }
-};
-
-/* =====================================
    Funny NO button
 ===================================== */
 
@@ -132,7 +115,7 @@ noBtn.addEventListener("mouseenter",()=>{
 document.getElementById("yesBtn").onclick=()=>{
   const msg=document.getElementById("finalMsg");
   msg.classList.remove("hidden");
-  msg.textContent = `Yay! ❤️ I love you more than words can say. Happy Valentine's, ${HER_NAME}!`;
+  msg.textContent = `Yay! ❤️ I love you more than words can say. I would love to spend our valentine's day with you regardless of how far we are, ${HER_NAME}!`;
 
   launchHearts(120);
 };
