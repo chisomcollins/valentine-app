@@ -14,127 +14,154 @@ const MEMORIES = [
    INSIDE_JOKE
 ];
 
-/* =====================================
-   UTILITIES
-===================================== */
+/* =========================
+   Screen control
+========================= */
 
-const screens = document.querySelectorAll(".screen");
+const screens=document.querySelectorAll(".screen");
 
-function showScreen(id){
+function show(id){
   screens.forEach(s=>s.classList.remove("active"));
   document.getElementById(id).classList.add("active");
 }
 
-/* =====================================
-   Welcome + Typewriter
-===================================== */
+/* =========================
+   Typewriter
+========================= */
 
-const welcomeText = document.getElementById("welcomeText");
-
-function typeWriter(el, text, speed=40){
+function typeWriter(el,text,speed=35){
   el.textContent="";
   let i=0;
-  const interval=setInterval(()=>{
+  const t=setInterval(()=>{
     el.textContent+=text[i];
     i++;
-    if(i>=text.length) clearInterval(interval);
-  }, speed);
+    if(i>=text.length) clearInterval(t);
+  },speed);
 }
 
-typeWriter(welcomeText, `Hi ${HER_NAME} ❤️`);
+/* =========================
+   Welcome
+========================= */
 
-document.getElementById("startBtn").onclick = () =>
-  showScreen("envelopeScreen");
+typeWriter(
+  document.getElementById("welcomeText"),
+  `Hi ${HER_NAME} ❤️`
+);
 
-/* =====================================
-   Envelope
-===================================== */
-
-const envelope = document.getElementById("envelope");
-
-envelope.onclick = () =>{
-  envelope.classList.add("open");
-  setTimeout(()=>showScreen("memoryScreen"),800);
+document.getElementById("startBtn").onclick=()=>{
+  show("envelopeScreen");
 };
 
-/* =====================================
-   Memories flow
-===================================== */
+/* =========================
+   Envelope
+========================= */
 
-let memoryIndex = 0;
-const memoryText = document.getElementById("memoryText");
+document.getElementById("envelope").onclick=()=>{
+  document.getElementById("envelope").classList.add("open");
+  setTimeout(()=>show("memoryScreen"),800);
+};
+
+/* =========================
+   Memory flow
+========================= */
+
+let i=0;
+const memoryText=document.getElementById("memoryText");
 
 function showMemory(){
-  typeWriter(memoryText, MEMORIES[memoryIndex]);
+  typeWriter(memoryText,MEMORIES[i]);
 }
 
 showMemory();
 
-document.getElementById("nextMemory").onclick = () =>{
-  memoryIndex++;
-  if(memoryIndex < MEMORIES.length){
+document.getElementById("nextMemory").onclick=()=>{
+  i++;
+  if(i<MEMORIES.length){
     showMemory();
-  } else {
-    showScreen("huntScreen");
+  }else{
+    show("adventureScreen");
   }
 };
 
-/* =====================================
+/* =========================
    Mini Hunt
-===================================== */
+========================= */
 
-document.querySelectorAll(".choice").forEach(btn=>{
+document.querySelectorAll(".wrong").forEach(btn=>{
   btn.onclick=()=>{
-    const msg=document.getElementById("huntMsg");
-    if(btn.dataset.good==="true"){
-      msg.textContent="You found the special one ❤️";
-      setTimeout(()=>showScreen("proposalScreen"),800);
-    } else {
-      msg.textContent="Hehe try again 😆";
-    }
+    document.getElementById("huntMsg").textContent="Not that one 😄 try again!";
   };
 });
 
-/* =====================================
+document.querySelector(".correct").onclick=()=>{
+  document.getElementById("huntMsg").textContent="You unlocked something ❤️";
+  document.getElementById("unlockBox").classList.remove("hidden");
+
+  typeWriter(
+    document.getElementById("unlockText"),
+    "That memory means so much to me. It was the moment I realized how special you are."
+  );
+
+  launchHearts(40);
+};
+
+/* Collect key to continue */
+
+document.getElementById("collectKey").onclick=()=>{
+  show("complimentScreen");
+};
+
+/* =========================
+   Compliment
+========================= */
+
+typeWriter(
+  document.getElementById("complimentText"),
+  "Before Valentine's Day arrives… I’ve been wanting to ask you something important."
+);
+
+document.getElementById("toProposal").onclick=()=>{
+  show("proposalScreen");
+};
+
+/* =========================
    Funny NO button
-===================================== */
+========================= */
 
 const noBtn=document.getElementById("noBtn");
 
 noBtn.addEventListener("mouseenter",()=>{
-  const x=Math.random()*200;
-  const y=Math.random()*80;
-  noBtn.style.left=x+"px";
-  noBtn.style.top=y+"px";
+  noBtn.style.left=Math.random()*200+"px";
+  noBtn.style.top=Math.random()*90+"px";
 });
 
-/* =====================================
-   YES Celebration
-===================================== */
+/* =========================
+   YES celebration
+========================= */
 
 document.getElementById("yesBtn").onclick=()=>{
   const msg=document.getElementById("finalMsg");
   msg.classList.remove("hidden");
-  msg.textContent = `Yay! ❤️ I love you more than words can say. I would love to spend our valentine's day with you regardless of how far we are, ${HER_NAME}!`;
+  msg.textContent="I can't wait to spend Valentine's Day with you ❤️";
 
-  launchHearts(120);
+  launchHearts(150);
 };
 
-/* =====================================
+/* =========================
    Floating hearts
-===================================== */
+========================= */
 
-function launchHearts(count){
-  const container=document.getElementById("hearts");
+function launchHearts(n){
+  const container=document.getElementById("effects");
 
-  for(let i=0;i<count;i++){
-    const heart=document.createElement("div");
-    heart.className="heart";
-    heart.textContent="❤️";
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.animationDuration=(4+Math.random()*3)+"s";
-    container.appendChild(heart);
+  for(let i=0;i<n;i++){
+    const el=document.createElement("div");
+    el.className="effect";
+    el.textContent="❤️";
+    el.style.left=Math.random()*100+"vw";
+    el.style.animationDuration=(4+Math.random()*3)+"s";
+    container.appendChild(el);
 
-    setTimeout(()=>heart.remove(),7000);
+    setTimeout(()=>el.remove(),7000);
   }
 }
