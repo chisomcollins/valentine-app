@@ -3,7 +3,6 @@
 ===================================== */
 
 const HER_NAME = "Chelsea";
-const INSIDE_JOKE = "My Apple of my life, Nne, My Achalugo, My Love, i can just imagine you smilling right now";
 const FAVORITE_COLOR = "purple";
 
 const MEMORIES = [
@@ -11,7 +10,7 @@ const MEMORIES = [
   "Everyday, we joke around one another ",
   "Every little moment with you feels like home.",
   "And today… I just know can't imagine a life without you.",
-   INSIDE_JOKE
+  "My Apple of my life, Nne, My Achalugo, My Love, i can just imagine you smilling right now"
 ];
 
 /* =========================
