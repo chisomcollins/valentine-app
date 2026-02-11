@@ -1,0 +1,168 @@
+/* ====================================
+   Romantic Theme Styling
+==================================== */
+
+:root{
+  --pink:#ff9ecb;
+  --red:#ff4d6d;
+  --cream:#fff6ef;
+  --dark:#7a2e4d;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body{
+  background: linear-gradient(135deg,#ffe4ec,#fff6ef,#ffd6e0);
+  overflow:hidden;
+  height:100vh;
+}
+
+/* Screens */
+.screen{
+  position:absolute;
+  inset:0;
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+
+.screen.active{
+  display:flex;
+  animation:fadeIn .8s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:scale(.95)}
+  to{opacity:1}
+}
+
+/* Buttons */
+button{
+  cursor:pointer;
+  border:none;
+  border-radius:30px;
+  padding:14px 26px;
+  font-size:16px;
+  transition:.25s;
+}
+
+.primary{
+  background:var(--red);
+  color:white;
+}
+
+.primary:hover{
+  transform:scale(1.08);
+}
+
+.music-btn{
+  position:fixed;
+  top:10px;
+  right:10px;
+  background:white;
+  border-radius:50%;
+  width:45px;
+  height:45px;
+}
+
+/* Envelope */
+.envelope{
+  width:200px;
+  height:140px;
+  background:#ffb3c6;
+  position:relative;
+  border-radius:8px;
+  cursor:pointer;
+  box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+.flap{
+  position:absolute;
+  width:100%;
+  height:70px;
+  background:#ff8fab;
+  top:0;
+  transform-origin:top;
+  transition:1s;
+}
+
+.envelope.open .flap{
+  transform:rotateX(180deg);
+}
+
+.letter{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+  font-weight:bold;
+}
+
+/* Card */
+.card{
+  background:white;
+  padding:25px;
+  border-radius:20px;
+  max-width:320px;
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+/* Choices */
+.choices{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.choice{
+  background:var(--pink);
+  color:white;
+}
+
+/* Proposal */
+.proposal-title{
+  font-size:28px;
+  margin-bottom:40px;
+}
+
+.buttons{
+  position:relative;
+  width:280px;
+  height:120px;
+}
+
+.yes{
+  background:#ff4d6d;
+  color:white;
+  font-weight:bold;
+}
+
+.no{
+  background:#ccc;
+  position:absolute;
+}
+
+/* Floating hearts */
+.heart{
+  position:absolute;
+  font-size:18px;
+  animation:float 6s linear infinite;
+}
+
+@keyframes float{
+  from{transform:translateY(100vh);opacity:1}
+  to{transform:translateY(-10vh);opacity:0}
+}
+
+.hidden{
+  display:none;
+}
