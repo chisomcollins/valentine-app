@@ -2,16 +2,16 @@
    CUSTOMIZATION — EDIT THESE
 ===================================== */
 
-const HER_NAME = "INSERT NAME";
-const INSIDE_JOKE = "INSERT INSIDE JOKE";
+const HER_NAME = "Chelsea";
+const INSIDE_JOKE = "My Apple of my life, Nne, My Achalugo, My Love, i can just imagine you smilling right now";
 const FAVORITE_COLOR = "INSERT FAVORITE COLOR";
 
 const MEMORIES = [
-  "The first time we met and laughed for hours.",
-  "That day we couldn't stop joking about " + INSIDE_JOKE,
-  "Walking together at our favorite place.",
+  "The first time we met physically and we immediately started vibing with each other.",
+  "Everyday, we joke around one another ",
   "Every little moment with you feels like home.",
-  "And today… I just knew I wanted forever with you."
+  "And today… I just know can't imagine a life without you.",
+   INSIDE_JOKE
 ];
 
 /* =====================================
