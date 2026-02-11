@@ -19,24 +19,22 @@ No frameworks. No installs. 100% vanilla.
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>For You ❤️</title>
+  <title>A little surprise ❤️</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
 
-  <!-- Floating hearts container -->
-  <div id="hearts"></div>
+  <div id="effects"></div>
 
-  <!-- SCREENS -->
-
-  <!-- 1. Welcome -->
+  <!-- 1 Welcome -->
   <section id="welcome" class="screen active">
     <h1 id="welcomeText"></h1>
-    <button class="primary" id="startBtn">Open something special 💌</button>
+    <p class="subtitle">I made something tiny for you…</p>
+    <button id="startBtn" class="primary">Start ✨</button>
   </section>
 
-  <!-- 2. Envelope -->
+  <!-- 2 Envelope -->
   <section id="envelopeScreen" class="screen">
     <div id="envelope" class="envelope">
       <div class="flap"></div>
@@ -44,28 +42,44 @@ No frameworks. No installs. 100% vanilla.
     </div>
   </section>
 
-  <!-- 3. Memories -->
+  <!-- 3 Memories -->
   <section id="memoryScreen" class="screen">
     <div class="card">
       <p id="memoryText" class="typewriter"></p>
-      <button class="primary" id="nextMemory">Next ➜</button>
+      <button id="nextMemory" class="primary">Next ➜</button>
     </div>
   </section>
 
-  <!-- 4. Mini adventure -->
-  <section id="huntScreen" class="screen">
-    <h2>Pick the right memory 💖</h2>
+  <!-- 4 Mini Adventure -->
+  <section id="adventureScreen" class="screen">
+    <h2>Find the sweetest memory 💖</h2>
+
     <div class="choices">
-      <button class="choice" data-good="false">Random Tuesday</button>
-      <button class="choice" data-good="true">Our Special Day ✨</button>
-      <button class="choice" data-good="false">Doing Laundry</button>
+      <button class="choice wrong">Sitting down watching shows</button>
+      <button class="choice correct">Cuddling while sleeping together ✨</button>
+      <button class="choice wrong">Going out together</button>
     </div>
+
     <p id="huntMsg"></p>
+
+    <!-- Hidden Unlock Box -->
+    <div id="unlockBox" class="unlock hidden">
+      <p id="unlockText"></p>
+      <button id="collectKey" class="primary">Collect the key 🔑</button>
+    </div>
   </section>
 
-  <!-- 5. Final proposal -->
+  <!-- 5 Compliment -->
+  <section id="complimentScreen" class="screen">
+    <div class="card">
+      <p id="complimentText"></p>
+      <button id="toProposal" class="primary">Continue ❤️</button>
+    </div>
+  </section>
+
+  <!-- 6 Proposal -->
   <section id="proposalScreen" class="screen">
-    <h1 class="proposal-title">Will you be my Valentine? ❤️</h1>
+    <h1 class="proposal-title">Will you be my Valentine?</h1>
 
     <div class="buttons">
       <button id="yesBtn" class="yes">YES 💖</button>
