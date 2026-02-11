@@ -144,24 +144,24 @@ document.getElementById("yesBtn").onclick=()=>{
   msg.classList.remove("hidden");
   msg.textContent="I can't wait to spend Valentine's Day with you ❤️";
 
-  launchHearts(150);
+  launchHearts(120);
 };
 
-/* =========================
+/* =====================================
    Floating hearts
-========================= */
+===================================== */
 
-function launchHearts(n){
-  const container=document.getElementById("effects");
+function launchHearts(count){
+  const container=document.getElementById("hearts");
 
-  for(let i=0;i<n;i++){
-    const el=document.createElement("div");
-    el.className="effect";
-    el.textContent="❤️";
-    el.style.left=Math.random()*100+"vw";
-    el.style.animationDuration=(4+Math.random()*3)+"s";
-    container.appendChild(el);
+  for(let i=0;i<count;i++){
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.textContent="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(4+Math.random()*3)+"s";
+    container.appendChild(heart);
 
-    setTimeout(()=>el.remove(),7000);
+    setTimeout(()=>heart.remove(),7000);
   }
 }
